@@ -13,15 +13,15 @@ function AuthProvider(props){
   const [session, setSession] = useState(null)
 
   useEffect(() => {
-    console.log("TOP AUTH CHECKS...")
+    //console.log("TOP AUTH CHECKS...")
     //check if browser store on local database
     const _session = supabase.auth.session();
-    console.log(_session)
+    //console.log(_session)
     if(_session){
       setSession(_session)
     }
     supabase.auth.onAuthStateChange((_event, session) => {
-      console.log(session)
+      //console.log(session)
       setSession(session)
     })
   }, [])

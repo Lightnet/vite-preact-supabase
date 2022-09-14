@@ -104,6 +104,17 @@ const Account = ({ session }) => {
             />
           </div>
           <div>
+            <Avatar
+            url={avatar_url}
+            size={150}
+            onUpload={(url) => {
+              console.log("UPLOADED:", url)
+              setAvatarUrl(url)
+              //updateProfile()//does not work
+            }}
+            />
+          </div>
+          <div>
             <button className="button primary block" disabled={loading} onClick={updateProfile}>
               Update profile
             </button>
@@ -111,17 +122,7 @@ const Account = ({ session }) => {
         </>
       )}
 
-      <div>
-      <Avatar
-      url={avatar_url}
-      size={150}
-      onUpload={(url) => {
-        console.log("UPLOADED:", url)
-        setAvatarUrl(url)
-        //updateProfile()//does not work
-      }}
-    />
-      </div>
+      
       <button
         type="button"
         className="button block"
